@@ -1,0 +1,17 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: spring-security-basic
+  datasource:
+    username: postgres
+    password: Panha12345
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/spring_security
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update #  or create-drop
+    generate-ddl: true
+
+#Configure datasource
