@@ -10,6 +10,6 @@ import java.util.Set;
 public record UserResponse(
         String id,
         String email,
-        Set<Role> roles
+        Set<String> roles
 ) {
 }
