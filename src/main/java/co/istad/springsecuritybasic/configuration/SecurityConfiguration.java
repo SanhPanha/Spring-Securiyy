@@ -25,19 +25,25 @@ public class SecurityConfiguration {
     public UserDetailsService userDetailsService() {
         UserDetails user1 = User.builder()
                 .username("mr.admin")
-                .password(passwordEncoder().encode("12345"))
+                .password(passwordEncoder()
+                        .encode("12345")
+                )
                 .roles("ADMIN")
                 .build();
 
         UserDetails user2 = User.builder()
                 .username("mr.user")
-                .password(passwordEncoder().encode("12345"))
+                .password(passwordEncoder()
+                        .encode("12345")
+                )
                 .roles("USER")
                 .build();
 
         UserDetails user3 = User.builder()
                 .username("mr.author")
-                .password(passwordEncoder().encode("12345"))
+                .password(passwordEncoder()
+                        .encode("12345")
+                )
                 .roles("AUTHOR")
                 .build();
 
@@ -69,7 +75,7 @@ public class SecurityConfiguration {
                                 .permitAll()
                                 .requestMatchers("api/v1/admins/**")
                                 .hasRole("ADMIN")
-                                .requestMatchers(HttpMethod.GET, "api/v1/articles/**")
+                                .requestMatchers(HttpMethod.GET, "api/v1/articles/**", "api/v1/...")
 //                                    .hasRole("USER")
                                 .hasAnyRole("USER", "AUTHOR", "ADMIN")
                                 .requestMatchers("api/v1/articles/**")
