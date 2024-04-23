@@ -19,7 +19,13 @@ public class User {
     private String email;
     private String password;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private boolean isDisabled;
+    private boolean isAccountLocked;
+    private boolean isAccountExpired;
+    private boolean isCredentialsExpired;
+
+    @ManyToMany(fetch = FetchType.EAGER)
     Set<Role> roles;
+
 
 }
